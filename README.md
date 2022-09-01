@@ -1,14 +1,17 @@
-Contributing to Odoo
-====================
+# README
 
-[Full contribution guidelines](https://github.com/odoo/odoo/wiki/Contributing)
+## About BeanBakery Store project
 
-TL;DR
+This project is a folk on the Odoo v15 Community which customized  for Online/ Offline Bakery Store.
 
-* If you [make a pull request](https://github.com/odoo/odoo/wiki/Contributing#making-pull-requests),
-  do not create an issue! Use the PR description for that
-* Issues are handled with a much lower priority than pull requests
-* Use this [template](https://github.com/odoo/odoo/tree/15.0/.github/ISSUE_TEMPLATE.md)
-  when reporting issues. Please search for duplicates first!
-* Pull requests must be made against the [correct version](https://github.com/odoo/odoo/wiki/Contributing#against-which-version-should-i-submit-a-patch)
-* There are restrictions on the kind of [changes allowed in stable series](https://github.com/odoo/odoo/wiki/Contributing#what-does-stable-mean)
+### Requirements
+
+I use this project for my own bakery business with the following requirements:
+
+* _**My business need a website for customer to purchase our product**_
+* _**My business need a frontend page for my staff make order on the offline store**_
+* _**My business have manufactoring processes, Inventory processes and Accounting, so I need a tool to management these processes**_
+
+## How to setup?
+
+* More informations here: https://beanbakerywiki.thebeanus.com/

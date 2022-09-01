@@ -1,10 +1,15 @@
 # Table of contents
 
-* [Contributing to Odoo](README.md)
-* [README](<README (1).md>)
-* [Ubuntu 20.04 and python 3.8.\*](ubuntu-20.04-and-python-3.8..md)
-* [Ubuntu 22.04 and python 3.10.\*](ubuntu-22.04-and-python-3.10..md)
-* [Use Docker](use-docker.md)
+* [README](README.md)
+
+## How to install
+
+* [Ubuntu 20.04 and python 3.8.\*](how-to-install/ubuntu-20.04-and-python-3.8..md)
+* [Ubuntu 22.04 and python 3.10.\*](how-to-install/ubuntu-22.04-and-python-3.10..md)
+* [Use Docker](how-to-install/use-docker.md)
+
+***
+
 * [Security Policy](SECURITY.md)
 * [addons](addons/README.md)
   * [account](addons/account/README.md)
@@ -830,3 +835,7 @@
       * [zoggy444](doc/cla/individual/zoggy444.md)
       * [zwgshr](doc/cla/individual/zwgshr.md)
       * [zyyang](doc/cla/individual/zyyang.md)
+
+## Odoo's Documents
+
+* [Contributing to Odoo](odoos-documents/contributing.md)
