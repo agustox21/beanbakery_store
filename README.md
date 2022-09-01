@@ -13,6 +13,5 @@ I use this project for my own bakery business with the following requirements:
 About Bean Bakery Store project
 This project is a folk on the Odoo v15 Community which customized for Online/ Offline Bakery Store.
 
-{% content-ref url="prerequisites.md" %} prerequisites.md {% endcontent-ref %}
-
-{% content-ref url="broken-reference" %} Broken link {% endcontent-ref %}
+## Project Wiki page:
+Link: https://beanbakerywiki.thebeanus.com
