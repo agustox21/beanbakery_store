@@ -1,6 +1,6 @@
 # Table of contents
 
-* [About Bean Bakery Store project](README.md)
+* [README](README.md)
 * [Prerequisites](prerequisites.md)
 
 ## How to install
