@@ -1,0 +1,42 @@
+<templates id="template" xml:space="preserve">
+    <t t-name="ClientDetailsEdit" t-inherit="point_of_sale.ClientDetailsEdit" t-inherit-mode="extension" owl="1">
+        
+        <xpath expr="//input[@name='street']" position="after">
+            <!-- <span class="label ">Street</span> -->
+            <t t-log="props"/>
+            <input class="detail client-address-street" name="street2" t-on-change="captureChange" style="display:none" t-att-value="props.partner.street2 || ''" placeholder="Street2" />
+        </xpath>
+        <xpath expr="//input[@name='city']" position="replace">
+            <input class="detail client-address-city" name="city" t-on-change="captureChange" style="display:none" t-att-value="props.partner.city || ''" placeholder="Street2" />
+            <select class="detail client-address-states needsclick" name="city_id" t-on-change="captureChange">
+                <option value="">Choose a City</option>
+                <t t-foreach="env.pos.city" t-as="city" t-key="city.id">
+                    <option t-if="props.partner.state_id[0] == city.state_id[0]" t-att-value="city.id" t-att-selected="props.partner.city_id ? ((city.id === props.partner.city_id[0]) ? true : undefined) : undefined">
+                        <t t-esc="city.name" />
+                    </option>
+                </t>
+            </select>
+        </xpath>
+        <xpath expr="//select[@name='city_id']" position="after">
+            <span class="label">District</span>
+            <select class="detail client-address-states needsclick" name="district_id" t-on-change="captureChange">
+                <option value="">None</option>
+                <t t-foreach="env.pos.district" t-as="district" t-key="district.id">
+                    <option t-if="props.partner.city_id ? props.partner.city_id[0] == district.city_id[0]: True" t-att-value="district.id" t-att-selected="props.partner.district_id ? ((district.id === props.partner.district_id[0]) ? true : undefined) : undefined">
+                        <t t-esc="district.name" />
+                    </option>
+                </t>
+            </select>
+            <span class="label"> Ward </span>
+            <select class="detail client-address-states needsclick" name="ward_id" t-on-change="captureChange">
+                <option value="">None</option>
+                <t t-foreach="env.pos.ward" t-as="ward" t-key="ward.id">
+                    <option t-if="props.partner.district_id ? props.partner.district_id[0] == ward.district_id[0]: True" t-att-value="ward.id" t-att-selected="props.partner.ward_id ? ((ward.id === props.partner.ward_id[0]) ? true : undefined) : undefined">
+
+                        <t t-esc="ward.name" />
+                    </option>
+                </t>
+            </select>
+        </xpath>
+    </t>
+</templates>

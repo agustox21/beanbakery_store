@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="point_of_sale.template" xml:space="preserve">
+
+    <!-- This code below is use to show logo on recept -->
+    <t t-name="OrderReceipt" owl="1" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension">
+
+        <!-- Delete some unuse -->
+        <xpath expr="//t[@t-if='receipt.company.logo']" position="replace"></xpath>
+        <xpath expr="//t[@t-if='!receipt.company.logo']" position="replace"></xpath>
+        <xpath expr="//t[@t-if='receipt.total_discount']" position="replace"></xpath>
+        <xpath expr="//t[@t-if='isTaxIncluded']" position="replace"></xpath>
+        <xpath expr="////div[hasclass('pos-receipt')]/br" position="replace">
+            <span></span>
+        </xpath>
+        <!-- <xpath expr="//div[hasclass('receipt-change')]" position="replace"></xpath> -->
+
+
+        <xpath expr="//div[hasclass('pos-receipt-contact')]" position="replace">
+
+            <!-- Use to show the Receipt and Env object -->
+            <!-- <t t-log="receipt"/> -->
+            <!-- <t t-log="env"/> -->
+
+
+            <div class="pos-receipt-contact" style=" display: flex;flex-direction: row;">
+                <t t-if="receipt.company.logo">
+                    <div style="padding-top:1rem">
+                        <img class="pos-receipt-logo" t-att-src="receipt.company.logo" alt="Logo" style="width:80px" />
+                    </div>
+                </t>
+                <div style="width:100%">
+                    <t t-if="receipt.company.contact_address">
+                        <h2>
+                            <t t-esc="receipt.company.contact_address" />
+                        </h2>
+                    </t>
+                    <t t-if="receipt.company.phone">
+                        <div>
+                            Tel:
+                            <t t-esc="receipt.company.phone" />
+                        </div>
+                    </t>
+                    <t t-if="receipt.company.vat">
+                        <div>
+                            <t t-esc="receipt.company.vat_label" />
+                            :
+                            <t t-esc="receipt.company.vat" />
+                        </div>
+                    </t>
+                    <t t-if="receipt.company.email">
+                        <div>
+                            <t t-esc="receipt.company.email" />
+                        </div>
+                    </t>
+                    <t t-if="receipt.company.website">
+                        <div>
+                            <t t-esc="receipt.company.website" />
+                        </div>
+                    </t>
+                    <t t-if="receipt.header_html">
+                        <t t-raw="receipt.header_html" />
+                    </t>
+                    <t t-if="!receipt.header_html and receipt.header">
+                        <div style="white-space:pre-line">
+                            <t t-esc="receipt.header" />
+                        </div>
+                    </t>
+
+                </div>
+
+            </div>
+
+            <t t-if="receipt.client  ">
+                <div id="customer-info" class="pos-receipt-left-align" style="font-size:14px">
+                    <br />
+                    <table>
+                        <tr style="vertical-align:top;padding-top:4px">
+                            <td>
+                                <span style="font-weight">Name: </span>
+                            </td>
+                            <td style="padding-left:4px">
+                                <b>
+                                    <t t-esc="receipt.client.name" />
+                                </b>
+                            </td>
+                        </tr>
+                        <t t-if="receipt.client.address">
+                            <tr style="vertical-align:top;padding-top:4px">
+                                <td>
+                                    <span>Address: </span>
+                                </td>
+                                <td style="padding-left:4px">
+                                    <!-- <t t-log="receipt.client"/> -->
+                                    <t t-if="receipt.client.street">
+                                        <t t-esc="receipt.client.street" />
+                                        ,
+                                    </t>
+                                    <t t-if="receipt.client.street2">
+                                        <t t-esc="receipt.client.street2" />
+                                        ,
+                                    </t>
+                                    <t t-if="receipt.client.city and receipt.client.city != 'Thành phố Hồ Chí Minh'">
+                                        <t t-esc="receipt.client.city" />
+                                        ,
+                                    </t>
+                                    <t t-if="receipt.client.state_id">
+                                        <t t-esc="receipt.client.state_id[1]" />
+                                    </t>
+                                    .
+                                </td>
+                            </tr>
+                        </t>
+                        <t t-if="receipt.client.phone">
+                            <tr style="vertical-align:top;padding-top:4px">
+                                <td>
+                                    <span>Phone: </span>
+                                </td>
+                                <td style="padding-left:4px">
+                                    <t t-esc="receipt.client.phone" />
+                                </td>
+                            </tr>
+                        </t>
+                        <br />
+                    </table>
+                </div>
+                <div class="pos-receipt-center-align">------------------------------</div>
+            </t>
+
+        </xpath>
+
+        <xpath expr="//div[hasclass('before-footer')]" position="before">
+            <div class="qr-area" style="width: 100%;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center; 
+                                align-items: center;">
+                <p style="margin:4px;">------------------------------</p>
+                <span style="font-size: 0.875rem; padding-bottom: 0.5rem">Use your bank app to Scan and pay</span>
+
+                <t t-if="env.pos.config.bank_acc">
+                    <img t-att-src="'/vietqr?bank_acc=' + env.pos.config.bank_acc
+                                    +'&amp;bill_value='+receipt.total_with_tax
+                                    +'&amp;bill_purpose=TT '+ receipt.name
+                                    +'&amp;width=120&amp;height=120'" />
+               
+                    <div style="font-size: 0.875rem;text-align:center;padding-top: 0.5rem">
+                        <span>Acc: 129005718 - Bank: VPBANK</span>
+                        <br />
+                        <span>Nguyễn Phạm Thùy Lan</span>
+                        <br />
+                        <span id="order_no" style="display:none" t-esc="receipt.name"></span>
+                    </div>
+                </t>
+
+            
+            </div>
+        </xpath>
+        <xpath expr="//div[hasclass('pos-receipt-order-data')]" position="inside">
+            <t t-if="receipt.cashier">
+                <div class="cashier" style="font-size: 0.75rem;text-align:center;">
+                    <div>--------------------------------</div>
+                    <div>
+                        Served by
+                        <t t-esc="receipt.cashier" />
+                    </div>
+                </div>
+            </t>
+        </xpath>
+
+    </t>
+
+</templates>

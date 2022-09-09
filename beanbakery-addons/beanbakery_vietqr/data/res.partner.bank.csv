@@ -1,0 +1,2 @@
+id,acc_number,sanitized_acc_number,acc_holder_name,bank_id:id,active,partner_id:id,company_id:id
+res_partner_bank_1,"12345678","12345678","MY BANK ACC","res_bank_38","True",base.main_partner,base.main_company

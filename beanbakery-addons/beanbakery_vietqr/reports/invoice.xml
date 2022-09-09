@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_invoice_document_inherit_sale" inherit_id="account.report_invoice_document">
+        <!-- <xpath expr="//address" position="attributes">
+            <attribute name="groups">!sale.group_delivery_invoice_address</attribute>
+        </xpath> -->
+        <xpath expr="//div[@name='comment']" position="after">
+            <div>
+                <div style="display: flex; flex-direction: row;align-items: center;}">
+                    <span>Scan to pay:</span>
+                    <img name="qr_image" t-att-src="o.qr_code_url" style="margin-left:16px; height:128px; width:128px"/>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- <template id="bean_portal_record_sidebar" name="My Portal Record Sidebar" inherit_id="portal.portal_record_sidebar">
+        <xpath expr="//div[hasclass('card-footer')]" position="replace">
+            <div>
+
+            </div>
+        </xpath>
+
+    </template> -->
+</odoo>

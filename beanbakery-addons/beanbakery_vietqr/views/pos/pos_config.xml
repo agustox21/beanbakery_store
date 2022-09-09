@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="pos_config_inherit_form_view" model="ir.ui.view">
+            <field name="name">pos.config.inherit.form</field>
+            <field name="model">pos.config</field>
+            <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <div>
+                        <div>
+                            <span class="o_form_label">Bank Account: </span>
+                            <field name="bank_acc"  />
+                        </div>
+                    </div>
+                </field>
+                
+            </field>
+        </record>
+    </data>
+</odoo>

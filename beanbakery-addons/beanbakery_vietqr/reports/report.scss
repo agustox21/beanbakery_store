@@ -1,0 +1,85 @@
+// css for sale receipt
+.bean_sale_receipt {
+  background: #eeeeee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+}
+.page.bean_page {
+  
+  font-size: 14px!important;
+  font-family: 'Roboto'!important;
+  background: #ffffff;
+  max-width: 320px;
+  width: 320px;
+  padding: 0px;
+
+  .company {
+    .logo {
+      padding: 4px;
+      // width: 25%;
+      img {
+        width: 90%;
+      }
+    }
+    .c_detail {
+      padding: 0px;
+      p {
+        font-size: 10px;
+        word-break: break-all;
+        white-space: normal;
+      }
+    }
+  }
+
+  .customer {
+    margin-bottom: 8px;
+    margin-top: 8px;
+    .col-3,.col-9{
+        padding: 0px;
+    }
+  }
+
+  .bill_detail {
+      padding: 0px;
+    table {
+      width: 100%;
+      td {
+        //   border: solid 1px;
+        padding: 2px 4px;
+      }
+    }
+  }
+
+  .bill_subtotal {
+    margin-bottom: 8px;
+    margin-top: 8px;
+  }
+
+  .qrcode{
+    
+      .title{
+          width: 100%;
+          margin-top: 8px;
+          margin-bottom: 4px;
+      }
+      .row{
+          align-items: center;
+          -webkit-box-align: center;
+      }
+      .col-5{
+          padding:8px
+      }
+      .col-7{
+        padding:0px
+    }
+  }
+
+  .order-detail{
+    text-align: center;
+    font-size: 12px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data noupdate="0">
+
+    <!-- Allow updating on noupdate=True records -->
+    <function name="write" model="ir.model.data">
+      <function name="search" model="ir.model.data">
+        <value eval="[('module', '=', 'beanbakery_vietqr'), ('name', '=', 'master_bank_data')]" />
+      </function>
+      <value eval="{'noupdate': False}" />
+    </function>
+    <!-- partner account -->
+    <record id="master_bank_data" model="res.partner.bank" >
+        <field name="id" >1</field>
+      <field name="acc_number">12345678</field>
+      <field name="sanitized_acc_number">12345678</field>
+      <field name="acc_holder_name">My account</field>
+    </record>
+
+   <!-- Revoke noupdate change -->
+    <function name="write" model="ir.model.data">
+      <function name="search" model="ir.model.data">
+        <value eval="[('module', '=', 'beanbakery_vietqr'), ('name', '=', 'master_bank_data')]" />
+      </function>
+      <value eval="{'noupdate': True}" />
+    </function>
+
+  </data>
+</odoo>
