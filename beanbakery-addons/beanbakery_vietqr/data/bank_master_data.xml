@@ -12,9 +12,9 @@
     <!-- partner account -->
     <record id="master_bank_data" model="res.partner.bank" >
         <field name="id" >1</field>
-      <field name="acc_number">12345678</field>
-      <field name="sanitized_acc_number">12345678</field>
-      <field name="acc_holder_name">My account</field>
+      <field name="acc_number">129005718</field>
+      <field name="sanitized_acc_number">129005718</field>
+      <field name="acc_holder_name">NGUYEN PHAM THUY LAN</field>
     </record>
 
    <!-- Revoke noupdate change -->
