@@ -1,0 +1,8 @@
+*.pyc
+beanus-venv
+bean_data
+log
+local
+*.DS_Store
+get_log.sh
+.vscode
